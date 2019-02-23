@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+
+{% block principal %}
+
+    <br>
+    <br>
+    <!-- Contenido Principal -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-18">
+            <h2 class="section-heading">{% block encabezado %}{% endblock encabezado %}</h2>
+
+            <hr>
+                <p>
+                {% block descripcion %}{% endblock descripcion %}
+                </p>
+
+                <hr>
+
+                {% block crud %}
+                    
+                {% endblock crud %}
+
+            <hr>
+        </div>
+      </div>
+    </div>
+
+{% endblock principal %}
