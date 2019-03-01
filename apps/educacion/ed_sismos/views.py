@@ -2,7 +2,7 @@ from .forms import PostForm
 from .models import SismoDefEd
 from apps.crud import CRUD, vista, post, edit, delete
 
-sismo = CRUD(SismoDefEd, 'educacion/sismo/', 'sismo', PostForm)
+sismo = CRUD(SismoDefEd, 'educacion/sismo/', 'sismo', PostForm, 'ed_')
 
 ed_sismo = lambda request : vista(request, sismo)
 

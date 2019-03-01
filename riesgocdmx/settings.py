@@ -38,11 +38,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.core',
+    'apps.proyectos',
+    'apps.educacion.ed_educacion',
     'apps.educacion.ed_erupcion',
     'apps.educacion.ed_inundaciones',
     'apps.educacion.ed_ladera',
     'apps.educacion.ed_asteroides',
     'apps.educacion.ed_sismos',
+    'apps.reflexion.ref_erupcion',
+    'apps.reflexion.ref_inundaciones',
+    'apps.reflexion.ref_ladera',
+    'apps.reflexion.ref_asteroides',
+    'apps.reflexion.ref_sismos',
+    'apps.accion.ac_erupcion',
+    'apps.accion.ac_inundaciones',
+    'apps.accion.ac_ladera',
+    'apps.accion.ac_asteroides',
+    'apps.accion.ac_sismos',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +141,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')

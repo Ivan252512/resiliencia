@@ -2,7 +2,7 @@ from .forms import PostForm
 from .models import LaderaDefEd
 from apps.crud import CRUD, vista, post, edit, delete
 
-ladera = CRUD(LaderaDefEd, 'educacion/ladera/', 'ladera', PostForm)
+ladera = CRUD(LaderaDefEd, 'educacion/ladera/', 'ladera', PostForm, 'ed_')
 
 ed_ladera = lambda request : vista(request, ladera)
 

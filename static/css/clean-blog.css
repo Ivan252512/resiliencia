@@ -1,33 +1,11 @@
 body {
     font-size: 20px;
     color: #000000;
-    font-family: 'Times New Roman', serif
+    font-family: 'Times New Roman', serif;
 }
 
 * {
     box-sizing: border-box;
-}
-
-#caja_izq {
-/* Create two equal columns that floats next to each other */
-    width: 100%;
-    color:rgb(0, 0, 0);
-}
-#caja_der {
-    width: 50%;
-    float: right;
-    border-left: solid 5px rgb(255, 255, 255);
-}
-.columna_izquierda {
-    width: 90%;
-    float: left;
-    position: relative;
-    margin-left: -100%;
-}
-.columna_derecha {
-    width: 90%;
-    float: right;
-    margin-right:5%;
 }
 
 p {

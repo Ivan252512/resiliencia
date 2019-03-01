@@ -15,13 +15,10 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from apps.core.views import index, nosotros, proyecto, educacion, reflexion, contacto
+from apps.core.views import index, nosotros, proyecto
 
 urlpatterns = [
     path('', index, name='index'),
     path('nosotros/', nosotros, name='nosotros'),
     path('proyecto/', proyecto, name='proyecto'),
-    path('educacion/', educacion, name='educacion'),
-    path('reflexion/', reflexion, name='reflexion'),
-    path('contacto/', contacto, name='contacto'),
 ]

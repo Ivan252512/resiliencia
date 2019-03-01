@@ -11,12 +11,3 @@ def nosotros(request):
 
 def proyecto(request):
     return render(request, 'core/proyecto.html')
-
-def educacion(request):
-    return render(request, 'core/educacion.html')
-
-def reflexion(request):
-    return render(request, 'core/reflexion.html')
-
-def contacto(request):
-    return render(request, 'core/contacto.html')

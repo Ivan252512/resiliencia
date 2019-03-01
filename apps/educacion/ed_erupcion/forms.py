@@ -1,9 +1,19 @@
 from django import forms
 
-from .models import VolcanDefEd
+from .models import VolcanDefEd, PostEdVolcan
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = VolcanDefEd
         fields = ('termino', 'definicion',)
+
+class PostEdVolcanForm(forms.ModelForm):
+    imagen = forms.ImageField(help_text='Este campo puede estar vacio', required=False)
+    subtitulo = forms.CharField(help_text='Este campo puede estar vacio', required=False)
+    parrafo = forms.CharField(help_text='Este campo puede estar vacio', required=False, widget=forms.Textarea(attrs={'cols': 60, 'rows': 10}))
+    descripcionImagen = forms.CharField(help_text='Este campo puede estar vacio', required=False, widget=forms.Textarea(attrs={'cols': 60, 'rows': 10}))
+
+    class Meta:
+        model = PostEdVolcan
+        fields = ('subtitulo', 'parrafo', 'imagen', 'descripcionImagen')

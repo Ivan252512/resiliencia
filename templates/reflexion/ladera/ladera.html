@@ -1,0 +1,42 @@
+{% extends "reflexion/base/base.html" %}
+
+
+{% block titulo %} Inestabilidad de ladera {% endblock titulo %}
+  
+{% block encabezado %} Inestabilidad de ladera  {% endblock encabezado %}
+
+{% block descripcion %}
+
+
+{% endblock descripcion %}
+
+{% block crud %}
+
+  {% if terminos %}
+    {% for termino in terminos %}
+      <p>
+        <b>{{termino.subtitulo}}: </b> {{termino.parrafo}}
+        <br>
+        {% if user.is_authenticated %}
+          <form>
+            <button>
+              <a href="{% url 'ref_ladera_edit' pk=termino.pk %}">Editar</a>
+            </button>
+            <button>
+              <a href="{% url 'ref_ladera_delete' pk=termino.pk %}" 
+              onclick="return confirm('¿Estás seguro de querer eliminar {{termino.parrafo}}? ');">Eliminar</a>
+            </button>
+          </form>
+        {% endif %}
+      </p>
+    {% endfor %}
+  {% endif %}
+
+
+{% if user.is_authenticated %}
+  <button>
+    <a href="{% url 'ref_ladera_post' %}">Agregar termino</a>
+  </button>
+{% endif %}
+
+{% endblock crud %}

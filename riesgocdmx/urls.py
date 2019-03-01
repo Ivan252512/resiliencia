@@ -15,13 +15,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.core.urls') ),
+    path('', include('apps.educacion.ed_educacion.urls') ),
     path('', include('apps.educacion.ed_erupcion.urls') ),
     path('', include('apps.educacion.ed_inundaciones.urls') ),
     path('', include('apps.educacion.ed_ladera.urls') ),
     path('', include('apps.educacion.ed_sismos.urls') ),
     path('', include('apps.educacion.ed_asteroides.urls') ),
+    path('', include('apps.reflexion.ref_erupcion.urls') ),
+    path('', include('apps.reflexion.ref_inundaciones.urls') ),
+    path('', include('apps.reflexion.ref_ladera.urls') ),
+    path('', include('apps.reflexion.ref_sismos.urls') ),
+    path('', include('apps.reflexion.ref_asteroides.urls') ),
+    path('', include('apps.accion.ac_erupcion.urls') ),
+    path('', include('apps.accion.ac_inundaciones.urls') ),
+    path('', include('apps.accion.ac_ladera.urls') ),
+    path('', include('apps.accion.ac_sismos.urls') ),
+    path('', include('apps.accion.ac_asteroides.urls') ),
+    path('', include('apps.proyectos.urls') ),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,7 +2,7 @@ from .forms import PostForm
 from .models import InundacionesDefEd
 from apps.crud import CRUD, vista, post, edit, delete
 
-inundacion = CRUD(InundacionesDefEd, 'educacion/inundacion/', 'inundacion', PostForm)
+inundacion = CRUD(InundacionesDefEd, 'educacion/inundacion/', 'inundacion', PostForm, 'ed_')
 
 ed_inundacion = lambda request : vista(request, inundacion)
 

@@ -6,31 +6,31 @@ from django.contrib.auth.decorators import login_required
 
 class CRUD(object):
     
-    def __init__(self, modelo, dirPrincipal, nombrePrincipal, PostForm):
+    def __init__(self, modelo, dirPrincipal, nombrePrincipal, PostForm, prefijo):
         self.modelo = modelo
         self.dirPrincipal = dirPrincipal #Formato path/ con diagonal al final
         self.nombrePrincipal = nombrePrincipal #Formato path sin diagonal
         self.PostForm = PostForm
+        self.prefijo = prefijo
 
 # Create your views here.
 def vista(request, crud_object):
-    termino = crud_object.modelo.objects.all()
-    contexto = {'terminos':termino}
+    contexto = {'terminos':crud_object.modelo.objects.all()}
     return render(request, crud_object.dirPrincipal + crud_object.nombrePrincipal + '.html', contexto)
 
 @login_required
 def post(request, crud_object):
     if request.method == "POST":
-        form = crud_object.PostForm(request.POST)
+        form = crud_object.PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('ed_' + crud_object.nombrePrincipal) 
+            return redirect(crud_object.prefijo + crud_object.nombrePrincipal) 
     else:
         form = crud_object.PostForm()
-    return render(request, 'educacion/base/agregarTermino.html', {'form': form})
+    return render(request, 'base/agregarTermino.html', {'form': form})
 
 @login_required
 def edit(request, pk, crud_object):
@@ -46,15 +46,17 @@ def edit(request, pk, crud_object):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('ed_' + crud_object.nombrePrincipal)
+            return redirect(crud_object.prefijo + crud_object.nombrePrincipal)
     else:
         form = crud_object.PostForm(instance=post)
-    return render(request, 'educacion/base/agregarTermino.html', {'form': form})
+    return render(request, 'base/agregarTermino.html', {'form': form})
 
+@login_required
 def delete(request, pk, crud_object):
     termino = crud_object.modelo.objects.all()
     contexto = {'terminos':termino}
     if request.user.is_authenticated:
         post = get_object_or_404(crud_object.modelo, pk=pk)
         post.delete()
+        return redirect(crud_object.prefijo + crud_object.nombrePrincipal)
     return render(request, crud_object.dirPrincipal + crud_object.nombrePrincipal + '.html', contexto)
