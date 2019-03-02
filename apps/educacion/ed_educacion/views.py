@@ -3,16 +3,18 @@ from django.shortcuts import render
 # Create your views here.
 from .forms import PrincipalForm, GlosarioForm, ReferenciaForm
 from .models import Principal, Glosario, Referencia
-from apps.crud import CRUD, post, edit, delete
+from apps.crud import CRUD, post, edit, delete, vista
 
-def ed_educacion(request):
-    contexto = {'terminos' : Principal.objects.all(),
-                'glosarios' : Glosario.objects.all(),
-                'referencias' : Referencia.objects.all()}
-    return render(request, 'core/educacion.html', contexto)
+
+contexto = {'terminos' : Principal,
+            'glosarios' : Glosario,
+            'referencias' : Referencia}
+
 
 #Principal
-educacion = CRUD(Principal, 'core/', 'educacion', PrincipalForm, 'ed_')
+educacion = CRUD(Principal, 'core/', 'educacion', PrincipalForm, 'ed_', contexto=contexto)
+
+ed_educacion = lambda request : vista(request, educacion)
 
 ed_educacion_post = lambda request : post(request, educacion)
 

@@ -7,7 +7,7 @@ class VolcanDefRef(models.Model):
     parrafo = models.CharField(max_length=800)
 
 # Create your models here.
-class PostRefErupcion(models.Model):
+class PostRefVolcan(models.Model):
     subtitulo = models.CharField(max_length=80, null=True, blank=True)
     parrafo = models.CharField(max_length=800, null=True, blank=True)
     descripcionImagen = models.CharField(max_length=200, null=True, blank=True)

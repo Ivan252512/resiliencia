@@ -15,11 +15,16 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from .views import ref_erupcion, ref_erupcion_post, ref_erupcion_edit, ref_erupcion_delete
+from .views import ref_erupcion, ref_erupcion_post, ref_erupcion_edit, ref_erupcion_delete, ref_erupcion_general_post, ref_erupcion_general_edit, ref_erupcion_general_delete
 
 urlpatterns = [
     path('ref_erupcion', ref_erupcion, name='ref_erupcion'),
     path('ref_erupcion_post/', ref_erupcion_post, name='ref_erupcion_post'),
     path('ref_erupcion_post/<int:pk>/edit/', ref_erupcion_edit, name='ref_erupcion_edit'),
     path('ref_erupcion_post/<int:pk>/delete/', ref_erupcion_delete, name='ref_erupcion_delete'),
+
+
+    path('ref_erupcion_general_post/', ref_erupcion_general_post, name='ref_erupcion_general_post'),
+    path('ref_erupcion_general_post/<int:pk>/edit/', ref_erupcion_general_edit, name='ref_erupcion_general_edit'),
+    path('ref_erupcion_general_post/<int:pk>/delete/', ref_erupcion_general_delete, name='ref_erupcion_general_delete'),
 ]

@@ -15,11 +15,16 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from .views import ed_ladera, ed_ladera_post, ed_ladera_edit, ed_ladera_delete
+from .views import ed_ladera, ed_ladera_post, ed_ladera_edit, ed_ladera_delete, ed_ladera_general_post, ed_ladera_general_edit, ed_ladera_general_delete
 
 urlpatterns = [
     path('ed_ladera', ed_ladera, name='ed_ladera'),
     path('ed_ladera_post/', ed_ladera_post, name='ed_ladera_post'),
     path('ed_ladera_post/<int:pk>/edit/', ed_ladera_edit, name='ed_ladera_edit'),
     path('ed_ladera_post/<int:pk>/delete/', ed_ladera_delete, name='ed_ladera_delete'),
+
+
+    path('ed_ladera_general_post/', ed_ladera_general_post, name='ed_ladera_general_post'),
+    path('ed_ladera_general_post/<int:pk>/edit/', ed_ladera_general_edit, name='ed_ladera_general_edit'),
+    path('ed_ladera_general_post/<int:pk>/delete/', ed_ladera_general_delete, name='ed_ladera_general_delete'),
 ]

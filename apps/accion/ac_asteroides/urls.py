@@ -15,11 +15,16 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from .views import ac_asteroide, ac_asteroide_post, ac_asteroide_edit, ac_asteroide_delete
+from .views import ac_asteroide, ac_asteroide_post, ac_asteroide_edit, ac_asteroide_delete, ac_asteroide_general_post, ac_asteroide_general_edit, ac_asteroide_general_delete
 
 urlpatterns = [
     path('ac_asteroide', ac_asteroide, name='ac_asteroide'),
     path('ac_asteroide_post/', ac_asteroide_post, name='ac_asteroide_post'),
     path('ac_asteroide_post/<int:pk>/edit', ac_asteroide_edit, name='ac_asteroide_edit'),
     path('ac_asteroide_post/<int:pk>/delete', ac_asteroide_delete, name='ac_asteroide_delete'),
+
+
+    path('ac_asteroide_general_post/', ac_asteroide_general_post, name='ac_asteroide_general_post'),
+    path('ac_asteroide_general_post/<int:pk>/edit', ac_asteroide_general_edit, name='ac_asteroide_general_edit'),
+    path('ac_asteroide_general_post/<int:pk>/delete', ac_asteroide_general_delete, name='ac_asteroide_general_delete'),
 ]

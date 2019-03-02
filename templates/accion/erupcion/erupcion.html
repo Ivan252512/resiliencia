@@ -6,10 +6,48 @@
 {% block encabezado %} Erupción volcánica  {% endblock encabezado %}
 
 {% block descripcion %}
+{% if general %}
+  {% for termino in general %}
+    <p>
+      <h2>{{termino.subtitulo}} </h2> 
+      <br>
+      {{termino.parrafo | safe}}
+      <br>
+      
+      {% if termino.imagen  %}
+        <center>
+            <img src="{{ termino.imagen.url}}" class="img-fluid" alt="" height="90%" width="90%" >
+            <br>
+            
+            {% if termino.descripcionImagen %}
+              {{termino.descripcionImagen}}
+            {% endif %}
+              
+        </center>
+      {% endif %}
+      <br>
+      {% if user.is_authenticated %}
+        <form>
+          <button>
+            <a href="{% url 'ac_erupcion_general_edit' pk=termino.pk %}">Editar</a>
+          </button>
+          <button>
+            <a href="{% url 'ac_erupcion_general_delete' pk=termino.pk %}" 
+            onclick="return confirm('¿Estás seguro de querer eliminar {{termino.parrafo}}? ');">Eliminar</a>
+          </button>
+        </form>
+      {% endif %}
+    </p>
+  {% endfor %}
+  {% endif %}
 
-  Una erupción volcánica es la salida de material volcánico (lavas, piroclastos y 
-  <a style="color:blue" href="educacion.php#gases" title="Agua, dióxido de carbono y azufre.">gases</a>)
-  a la superficie a través de un cráter o fractura.
+
+  {% if user.is_authenticated %}
+    <form action="" method="post" enctype="multipart/form-data"></form>
+    <button>
+      <a href="{% url 'ac_erupcion_general_post' %}">Agregar parrafo</a>
+    </button>
+  {% endif %}
 
 {% endblock descripcion %}
 

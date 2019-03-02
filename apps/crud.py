@@ -6,17 +6,23 @@ from django.contrib.auth.decorators import login_required
 
 class CRUD(object):
     
-    def __init__(self, modelo, dirPrincipal, nombrePrincipal, PostForm, prefijo):
+    def __init__(self, modelo, dirPrincipal, nombrePrincipal, PostForm, prefijo, contexto={}):
         self.modelo = modelo
         self.dirPrincipal = dirPrincipal #Formato path/ con diagonal al final
         self.nombrePrincipal = nombrePrincipal #Formato path sin diagonal
         self.PostForm = PostForm
         self.prefijo = prefijo
+        if contexto=={}:
+            self.contexto = {'terminos':self.modelo}
+        else:
+            self.contexto = contexto
 
 # Create your views here.
 def vista(request, crud_object):
-    contexto = {'terminos':crud_object.modelo.objects.all()}
-    return render(request, crud_object.dirPrincipal + crud_object.nombrePrincipal + '.html', contexto)
+    context = {}
+    for i in crud_object.contexto.keys():
+        context.update({i:crud_object.contexto.get(i).objects.all()})
+    return render(request, crud_object.dirPrincipal + crud_object.nombrePrincipal + '.html', context)
 
 @login_required
 def post(request, crud_object):

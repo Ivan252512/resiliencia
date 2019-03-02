@@ -15,11 +15,16 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from .views import ref_sismo, ref_sismo_post, ref_sismo_edit, ref_sismo_delete
+from .views import ref_sismo, ref_sismo_post, ref_sismo_edit, ref_sismo_delete, ref_sismo_general_post, ref_sismo_general_edit, ref_sismo_general_delete
 
 urlpatterns = [
     path('ref_sismo', ref_sismo, name='ref_sismo'),
     path('ref_sismo_post/', ref_sismo_post, name='ref_sismo_post'),
     path('ref_sismo_post/<int:pk>/edit', ref_sismo_edit, name='ref_sismo_edit'),
     path('ref_sismo_post/<int:pk>/delete', ref_sismo_delete, name='ref_sismo_delete'),
+
+
+    path('ref_sismo_general_post/', ref_sismo_general_post, name='ref_sismo_general_post'),
+    path('ref_sismo_general_post/<int:pk>/edit', ref_sismo_general_edit, name='ref_sismo_general_edit'),
+    path('ref_sismo_general_post/<int:pk>/delete', ref_sismo_general_delete, name='ref_sismo_general_delete'),
 ]

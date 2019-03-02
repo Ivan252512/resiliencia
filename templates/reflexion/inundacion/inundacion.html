@@ -6,6 +6,48 @@
 {% block encabezado %} Inundación  {% endblock encabezado %}
 
 {% block descripcion %}
+{% if general %}
+  {% for termino in general %}
+    <p>
+      <h2>{{termino.subtitulo}} </h2> 
+      <br>
+      {{termino.parrafo | safe}}
+      <br>
+      
+      {% if termino.imagen  %}
+        <center>
+            <img src="{{ termino.imagen.url}}" class="img-fluid" alt="" height="90%" width="90%" >
+            <br>
+            
+            {% if termino.descripcionImagen %}
+              {{termino.descripcionImagen}}
+            {% endif %}
+              
+        </center>
+      {% endif %}
+      <br>
+      {% if user.is_authenticated %}
+        <form>
+          <button>
+            <a href="{% url 'ref_inundacion_general_edit' pk=termino.pk %}">Editar</a>
+          </button>
+          <button>
+            <a href="{% url 'ref_inundacion_general_delete' pk=termino.pk %}" 
+            onclick="return confirm('¿Estás seguro de querer eliminar {{termino.parrafo}}? ');">Eliminar</a>
+          </button>
+        </form>
+      {% endif %}
+    </p>
+  {% endfor %}
+  {% endif %}
+
+
+  {% if user.is_authenticated %}
+    <form action="" method="post" enctype="multipart/form-data"></form>
+    <button>
+      <a href="{% url 'ref_inundacion_general_post' %}">Agregar parrafo</a>
+    </button>
+  {% endif %}
 
 {% endblock descripcion %}
 
