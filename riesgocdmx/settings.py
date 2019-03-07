@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'riesgocdmx.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'riesgocdmx',
+        'NAME': 'resiliencia',
         'USER': 'root',
         'PASSWORD': 'sarampion25',
         'HOST': 'localhost',

@@ -30,8 +30,6 @@ def post(request, crud_object):
         form = crud_object.PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
             post.save()
             return redirect(crud_object.prefijo + crud_object.nombrePrincipal) 
     else:

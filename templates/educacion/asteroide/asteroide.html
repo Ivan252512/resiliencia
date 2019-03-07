@@ -19,12 +19,29 @@
             <img src="{{ termino.imagen.url}}" class="img-fluid" alt="" height="90%" width="90%" >
             <br>
             
-            {% if termino.descripcionImagen %}
-              {{termino.descripcionImagen}}
+            {% if termino.descripcion %}
+              {{termino.descripcion}}
             {% endif %}
               
         </center>
       {% endif %}
+
+      {% if termino.video  %}
+        <center>
+                        <video width="100%" controls >
+                            <source src="{{ termino.video.url}}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>   
+            <br>
+            
+            {% if termino.descripcion %}
+              {{termino.descripcion}}
+            {% endif %}
+              
+        </center>
+      {% endif %}
+
+
       <br>
       {% if user.is_authenticated %}
         <form>
