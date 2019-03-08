@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zd#i)c)7$5b@j%ov7(7=vmc%7gvouhn_i8-2xx@l)3t9_363%u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'apps.accion.ac_ladera',
     'apps.accion.ac_asteroides',
     'apps.accion.ac_sismos',
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
@@ -140,20 +141,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+]
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-
-# Update database configuration with $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)  
-DATABASES['default'].update(db_from_env) 
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (  
-    os.path.join(BASE_DIR, 'static'),
-)
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
