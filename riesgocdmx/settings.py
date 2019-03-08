@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zd#i)c)7$5b@j%ov7(7=vmc%7gvouhn_i8-2xx@l)3t9_363%u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.1.71', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['ivanpineda.pythonanywhere.com']
 
 
 # Application definition
@@ -94,10 +94,10 @@ WSGI_APPLICATION = 'riesgocdmx.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'riesgocdmx',
-        'USER': 'root',
+        'NAME': 'ivanpineda$default',
+        'USER': 'ivanpineda',
         'PASSWORD': 'sarampion25',
-        'HOST': 'localhost',
+        'HOST': 'ivanpineda.mysql.pythonanywhere-services.com',
         'PORT': '',
     }
 }
@@ -122,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
+# Internationalizatio.n
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
 LANGUAGE_CODE = 'es'
