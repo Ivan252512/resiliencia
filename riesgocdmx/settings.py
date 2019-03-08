@@ -25,7 +25,7 @@ SECRET_KEY = 'zd#i)c)7$5b@j%ov7(7=vmc%7gvouhn_i8-2xx@l)3t9_363%u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ivanpineda.pythonanywhere.com']
+ALLOWED_HOSTS = ['192.168.1.71','localhost', '127.0.0.1']
 
 
 # Application definition
@@ -94,10 +94,10 @@ WSGI_APPLICATION = 'riesgocdmx.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ivanpineda$default',
-        'USER': 'ivanpineda',
+        'NAME': 'resiliencia',
+        'USER': 'ivan',
         'PASSWORD': 'sarampion25',
-        'HOST': 'ivanpineda.mysql.pythonanywhere-services.com',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
