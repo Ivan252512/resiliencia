@@ -23,9 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zd#i)c)7$5b@j%ov7(7=vmc%7gvouhn_i8-2xx@l)3t9_363%u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+DEBUG = False
+ALLOWED_HOSTS = ['ivan252512.pythonanywhere.com']
 
 
 # Application definition
@@ -95,10 +94,10 @@ WSGI_APPLICATION = 'riesgocdmx.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'resiliencia',
-        'USER': 'ivan',
+        'NAME': 'Ivan252512$resiliencia',
+        'USER': 'Ivan252512',
         'PASSWORD': 'sarampion25',
-        'HOST': 'localhost',
+        'HOST': 'Ivan252512.mysql.pythonanywhere-services.com',
         'PORT': '',
     }
 }
@@ -140,12 +139,3 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
-]
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
