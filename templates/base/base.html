@@ -24,6 +24,7 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/normalize.css' %}" rel="stylesheet">
     <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -92,18 +93,20 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
               <li class="list-inline-item">
-                <a href="#">
+                <a href="{% url 'send_email' %}">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/channel/UCZBTERVA1QKhjFIn1nisL-A?view_as=subscriber" target="_blank">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
               </li>
             </ul>
         <p class="copyright text-muted">Hacia una comunidad resiliente: Programa de educación de amenazas naturales (geológicas y astronómicas) en la Ciudad de México - (Ciudad Universitaria) </p>
@@ -115,7 +118,7 @@
 
 
     <!-- Bootstrap y Javascripts -->
-    <script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
     <script src="{% static 'js/clean-blog.js' %}"></script>
 </body>

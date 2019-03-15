@@ -17,4 +17,4 @@ class PostEdLaderaForm(forms.ModelForm):
 
     class Meta:
         model = PostEdLadera
-        fields = ('subtitulo', 'parrafo', 'imagen',  'video', 'descripcion')
+        fields = ('subtitulo','parrafo', 'youtube', 'descripcion','video', 'imagen')

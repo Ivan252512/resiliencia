@@ -19,4 +19,4 @@ class PostAcVolcanForm(forms.ModelForm):
 
     class Meta:
         model = PostAcVolcan
-        fields = ('subtitulo', 'parrafo', 'imagen',  'video', 'descripcion')
+        fields = ('subtitulo','parrafo', 'youtube', 'descripcion','video', 'imagen')

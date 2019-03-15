@@ -19,4 +19,4 @@ class PostRefVolcanForm(forms.ModelForm):
 
     class Meta:
         model = PostRefVolcan
-        fields = ('subtitulo', 'parrafo', 'imagen',  'video', 'descripcion')
+        fields = ('subtitulo','parrafo', 'youtube', 'descripcion','video', 'imagen')

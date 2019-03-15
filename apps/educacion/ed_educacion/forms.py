@@ -11,7 +11,7 @@ class PrincipalForm(forms.ModelForm):
 
     class Meta:
         model = Principal
-        fields = ('subtitulo', 'parrafo', 'imagen',  'video', 'descripcion')
+        fields = ('subtitulo','parrafo', 'youtube', 'descripcion','video', 'imagen')
 
 
 class GlosarioForm(forms.ModelForm):

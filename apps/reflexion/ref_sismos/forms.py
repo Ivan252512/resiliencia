@@ -19,4 +19,4 @@ class PostRefSismoForm(forms.ModelForm):
 
     class Meta:
         model = PostRefSismo
-        fields = ('subtitulo', 'parrafo', 'imagen',  'video', 'descripcion')
+        fields = ('subtitulo','parrafo', 'youtube', 'descripcion','video', 'imagen')

@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from apps.core.views import index, nosotros, proyecto, video_post, video_edit, video_delete
+from apps.core.views import index, nosotros, proyecto, video_post, video_edit, video_delete, send_email
 
 urlpatterns = [
     path('', index, name='index'),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('video_post/', video_post, name='video_post'),
     path('video_post/<int:pk>/edit/', video_edit, name='video_edit'),
     path('video_post/<int:pk>/delete/', video_delete, name='video_delete'),
+    path('contacto/', send_email, name='send_email'),
 ]

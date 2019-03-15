@@ -19,4 +19,4 @@ class PostRefInundacionForm(forms.ModelForm):
 
     class Meta:
         model = PostRefInundacion
-        fields = ('subtitulo', 'parrafo', 'imagen',  'video', 'descripcion')
+        fields = ('subtitulo','parrafo', 'youtube', 'descripcion','video', 'imagen')

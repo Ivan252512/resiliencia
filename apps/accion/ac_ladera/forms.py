@@ -20,4 +20,4 @@ class PostAcLaderaForm(forms.ModelForm):
 
     class Meta:
         model = PostAcLadera
-        fields = ('subtitulo', 'parrafo', 'imagen',  'video', 'descripcion')
+        fields = ('subtitulo','parrafo', 'youtube', 'descripcion','video', 'imagen')

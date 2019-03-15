@@ -19,18 +19,28 @@
           {% if terminos %}
           {% for termino in terminos %}
             <p>
-              <h2>{{termino.subtitulo}} </h2> 
+              <h2>{{termino.subtitulo}} </h2>
               <br>
-              {{termino.parrafo | safe}}
+              {% if termino.parrafo %}
+              {% if termino.youtube %}
+                <div class="embed-container">
+                  {{termino.parrafo | safe}}
+                </div>
+              {% else %}
+                {{termino.parrafo | safe}}
+              {% endif %}
               <br>
+              <br>
+            {% endif %}
               
               {% if termino.imagen  %}
                 <center>
-                    <img src="{{ termino.imagen.url}}" class="img-fluid" alt="" height="90%" width="90%" >
+                    <img src="{{ termino.imagen.url}}" class="img-fluid" alt="" height="100%" width="100%" >
                     <br>
                     
                     {% if termino.descripcion %}
-                      {{termino.descripcion}}
+                      <i>{{termino.descripcion}}</i>
+              <br>
                     {% endif %}
                       
                 </center>

@@ -19,4 +19,4 @@ class PostAcSismoForm(forms.ModelForm):
 
     class Meta:
         model = PostAcSismo
-        fields = ('subtitulo', 'parrafo', 'imagen',  'video', 'descripcion')
+        fields = ('subtitulo','parrafo', 'youtube', 'descripcion','video', 'imagen')

@@ -7,14 +7,14 @@ from .forms import  VideosForm
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'core/index.html')
-
 def nosotros(request):
     return render(request, 'core/nosotros.html')
 
 def proyecto(request):
     return render(request, 'core/proyecto.html')
+
+def send_email(request):
+    return render(request, 'core/contact.html')
 
 
 
