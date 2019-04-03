@@ -6,120 +6,129 @@
 <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
 
 <head>
-    <meta charset="UTF-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>{% block titulo %} {% endblock titulo %}</title>
-        
-    
-    <!-- Bootstrap core CSS -->
-    <link href= "{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+  <title>{% block titulo %} {% endblock titulo %}</title>
 
-    <!-- Custom fonts for this template -->
-    <link href= "{% static 'vendor/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/normalize.css' %}" rel="stylesheet">
-    <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'vendor/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/normalize.css' %}" rel="stylesheet">
+  <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
 
 </head>
 
 <body>
-    <!-- Navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <!-- Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'index' %}">Resiliencia CDMX</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="{% url 'index' %}">Resiliencia CDMX</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menú
         <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <!-- Descripción del proyecto-->
+          <li class="nav-item">
+            <!-- Descripción del proyecto-->
             <a class="nav-link" href="{% url 'proyecto' %}">Nuestro proyecto</a>
-            </li>
-            <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'nosotros' %}">¿Quiénes somos?</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
-            </li>
-            <li class="nav-item">
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'ed_educacion' %}">Educación</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="Inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Reflexion
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Página">
-                    <a href="{% url 'ref_sismo' %}" class="dropdown-item" >Sismos</a>
-                    <a href="{% url 'ref_erupcion' %}" class="dropdown-item" >Erupción volcánica</a>
-                    <a href="{% url 'ref_ladera' %}" class="dropdown-item" >Inestabilidad de laderas</a>
-                    <a href="{% url 'ref_asteroide' %}" class="dropdown-item" >Asteroides y cometas</a>
-                    <a href="{% url 'ref_inundacion' %}" class="dropdown-item" >Inundaciones</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="Inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Acciones
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Página">
-                    <a href="{% url 'ac_sismo' %}" class="dropdown-item" >Sismos</a>
-                    <a href="{% url 'ac_erupcion' %}" class="dropdown-item" >Erupción volcánica</a>
-                    <a href="{% url 'ac_ladera' %}" class="dropdown-item" >Inestabilidad de laderas</a>
-                    <a href="{% url 'ac_asteroide' %}" class="dropdown-item" >Asteroides y cometas</a>
-                    <a href="{% url 'ac_inundacion' %}" class="dropdown-item" >Inundaciones</a>
-                </div>
-            </li>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="Inicio" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Reflexion
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Página">
+              <a href="{% url 'ref_sismo' %}" class="dropdown-item">Sismos</a>
+              <a href="{% url 'ref_erupcion' %}" class="dropdown-item">Erupción volcánica</a>
+              <a href="{% url 'ref_ladera' %}" class="dropdown-item">Inestabilidad de laderas</a>
+              <a href="{% url 'ref_asteroide' %}" class="dropdown-item">Asteroides y cometas</a>
+              <a href="{% url 'ref_inundacion' %}" class="dropdown-item">Inundaciones</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="Inicio" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Acciones
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Página">
+              <a href="{% url 'ac_sismo' %}" class="dropdown-item">Sismos</a>
+              <a href="{% url 'ac_erupcion' %}" class="dropdown-item">Erupción volcánica</a>
+              <a href="{% url 'ac_ladera' %}" class="dropdown-item">Inestabilidad de laderas</a>
+              <a href="{% url 'ac_asteroide' %}" class="dropdown-item">Asteroides y cometas</a>
+              <a href="{% url 'ac_inundacion' %}" class="dropdown-item">Inundaciones</a>
+            </div>
+          </li>
         </ul>
-        </div>
+      </div>
     </div>
-    </nav>
+  </nav>
 
-     <!-- Contenido principal -->
-     
-     {% block principal %} {% endblock principal %}
+  <!-- Contenido principal -->
+
+  {% block principal %} {% endblock principal %}
 
 
- <!-- Pié de página -->
- <footer>
-        <hr>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="{% url 'send_email' %}">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.youtube.com/channel/UCZBTERVA1QKhjFIn1nisL-A?view_as=subscriber" target="_blank">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa fa-circle fa-stack-2x"></i>
-                      <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                    </span>
-                  </a>
-              </li>
-            </ul>
-        <p class="copyright text-muted">Hacia una comunidad resiliente: Programa de educación de amenazas naturales (geológicas y astronómicas) en la Ciudad de México - (Ciudad Universitaria) </p>
-          </div>
+  <!-- Pié de página -->
+  <footer>
+    <hr>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="{% url 'send_email' %}">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.youtube.com/channel/UCZBTERVA1QKhjFIn1nisL-A?view_as=subscriber" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Hacia una comunidad resiliente: Programa de educación de amenazas naturales
+            (geológicas y astronómicas) en la Ciudad de México - (Ciudad Universitaria) </p>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
 
 
-    <!-- Bootstrap y Javascripts -->
-    <script src="//code.jquery.com/jquery-latest.min.js"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
-    <script src="{% static 'js/clean-blog.js' %}"></script>
+  <!-- Bootstrap y Javascripts -->
+  <script src="//code.jquery.com/jquery-latest.min.js"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+  <script src="{% static 'js/clean-blog.js' %}"></script>
 </body>
+
 </html>

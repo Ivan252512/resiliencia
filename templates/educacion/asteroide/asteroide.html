@@ -2,110 +2,110 @@
 
 
 {% block titulo %} Asteroides y cometas {% endblock titulo %}
-  
-{% block encabezado %} Asteroides y cometas  {% endblock encabezado %}
+
+{% block encabezado %} Asteroides y cometas {% endblock encabezado %}
 
 {% block descripcion %}
 {% if general %}
-  {% for termino in general %}
-    <p>
-      <h2>{{termino.subtitulo}} </h2>
-      <br>
-                  {% if termino.parrafo %}
-                    {% if termino.youtube %}
-                      <div class="embed-container">
-                        {{termino.parrafo | safe}}
-                      </div>
-                    {% else %}
-                      {{termino.parrafo | safe}}
-                    {% endif %}
-                    <br>
-                    <br>
-                  {% endif %}
-      
-      {% if termino.imagen  %}
-        <center>
-            <img src="{{ termino.imagen.url}}" class="img-fluid" alt="" height="100%" width="100%" >
-            <br>
-            
-            {% if termino.descripcion %}
-              <i>{{termino.descripcion}}</i>
-              <br>
-            {% endif %}
-              
-        </center>
-      {% endif %}
+{% for termino in general %}
+<p>
+  <h2>{{termino.subtitulo}} </h2>
+  <br>
+  {% if termino.parrafo %}
+  {% if termino.youtube %}
+  <div class="embed-container">
+    {{termino.parrafo | safe}}
+  </div>
+  {% else %}
+  {{termino.parrafo | safe}}
+  {% endif %}
+  <br>
+  <br>
+  {% endif %}
 
-      {% if termino.video  %}
-        <center>
-                        <video width="100%" controls >
-                            <source src="{{ termino.video.url}}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>   
-            <br>
-            
-            {% if termino.descripcion %}
-              <i>{{termino.descripcion}}</i>
-              <br>
-            {% endif %}
-              
-        </center>
-      {% endif %}
+  {% if termino.imagen  %}
+  <center>
+    <img src="{{ termino.imagen.url}}" class="img-fluid" alt="" height="100%" width="100%">
+    <br>
 
+    {% if termino.descripcion %}
+    <i>{{termino.descripcion}}</i>
+    <br>
+    {% endif %}
 
-      <br>
-      {% if user.is_authenticated %}
-        <form>
-          <button>
-            <a href="{% url 'ed_asteroide_general_edit' pk=termino.pk %}">Editar</a>
-          </button>
-          <button>
-            <a href="{% url 'ed_asteroide_general_delete' pk=termino.pk %}" 
-            onclick="return confirm('¿Estás seguro de querer eliminar {{termino.parrafo}}? ');">Eliminar</a>
-          </button>
-        </form>
-      {% endif %}
-    </p>
-  {% endfor %}
+  </center>
+  {% endif %}
+
+  {% if termino.video  %}
+  <center>
+    <video width="100%" controls>
+      <source src="{{ termino.video.url}}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <br>
+
+    {% if termino.descripcion %}
+    <i>{{termino.descripcion}}</i>
+    <br>
+    {% endif %}
+
+  </center>
   {% endif %}
 
 
+  <br>
   {% if user.is_authenticated %}
-    <form action="" method="post" enctype="multipart/form-data"></form>
+  <form>
     <button>
-      <a href="{% url 'ed_asteroide_general_post' %}">Agregar parrafo</a>
+      <a href="{% url 'ed_asteroide_general_edit' pk=termino.pk %}">Editar</a>
     </button>
+    <button>
+      <a href="{% url 'ed_asteroide_general_delete' pk=termino.pk %}"
+        onclick="return confirm('¿Estás seguro de querer eliminar {{termino.parrafo}}? ');">Eliminar</a>
+    </button>
+  </form>
   {% endif %}
+</p>
+{% endfor %}
+{% endif %}
+
+
+{% if user.is_authenticated %}
+<form action="" method="post" enctype="multipart/form-data"></form>
+<button>
+  <a href="{% url 'ed_asteroide_general_post' %}">Agregar parrafo</a>
+</button>
+{% endif %}
 
 {% endblock descripcion %}
 
 {% block crud %}
 
-  {% if terminos %}
-    {% for termino in terminos %}
-      <p>
-        <b>{{termino.termino}}: </b> {{termino.definicion}}
-        <br>
-        {% if user.is_authenticated %}
-          <form>
-            <button>
-              <a href="{% url 'ed_asteroide_edit' pk=termino.pk %}">Editar</a>
-            </button>
-            <button>
-              <a href="{% url 'ed_asteroide_delete' pk=termino.pk %}" 
-              onclick="return confirm('¿Estás seguro de querer eliminar {{termino.termino}}? ');">Eliminar</a>
-            </button>
-          </form>
-        {% endif %}
-      </p>
-    {% endfor %}
+{% if terminos %}
+{% for termino in terminos %}
+<p>
+  <b>{{termino.termino}}: </b> {{termino.definicion}}
+  <br>
+  {% if user.is_authenticated %}
+  <form>
+    <button>
+      <a href="{% url 'ed_asteroide_edit' pk=termino.pk %}">Editar</a>
+    </button>
+    <button>
+      <a href="{% url 'ed_asteroide_delete' pk=termino.pk %}"
+        onclick="return confirm('¿Estás seguro de querer eliminar {{termino.termino}}? ');">Eliminar</a>
+    </button>
+  </form>
   {% endif %}
+</p>
+{% endfor %}
+{% endif %}
 
 
 {% if user.is_authenticated %}
-  <button>
-    <a href="{% url 'ed_asteroide_post' %}">Agregar termino</a>
-  </button>
+<button>
+  <a href="{% url 'ed_asteroide_post' %}">Agregar termino</a>
+</button>
 {% endif %}
 
 {% endblock crud %}

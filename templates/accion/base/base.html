@@ -2,29 +2,29 @@
 
 {% block principal %}
 
-    <br>
-    <br>
-    <!-- Contenido Principal -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-18">
-          <hr>
-            <h2 class="section-heading">{% block encabezado %}{% endblock encabezado %}</h2>
+<br>
+<br>
+<!-- Contenido Principal -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-18">
+      <hr>
+      <h2 class="section-heading">{% block encabezado %}{% endblock encabezado %}</h2>
 
-            <hr>
-                <p>
-                {% block descripcion %}{% endblock descripcion %}
-                </p>
+      <hr>
+      <p>
+        {% block descripcion %}{% endblock descripcion %}
+      </p>
 
-                <hr>
+      <hr>
 
-                {% block crud %}
-                    
-                {% endblock crud %}
+      {% block crud %}
 
-            <hr>
-        </div>
-      </div>
+      {% endblock crud %}
+
+      <hr>
     </div>
+  </div>
+</div>
 
 {% endblock principal %}
